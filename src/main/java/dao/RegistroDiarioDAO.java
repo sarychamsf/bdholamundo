@@ -52,24 +52,22 @@ public class RegistroDiarioDAO {
     }
 
     public void deleteRegistro(Date fecha) throws SQLException {
-        PreparedStatement preparedStatement = connection.prepareStatement("delete from registrodiario where fecha=?");
+        PreparedStatement preparedStatement = connection.prepareStatement("delete from registrodiario where fecha='"+fecha+"'");
         preparedStatement.setDate(1, fecha);
         preparedStatement.executeUpdate();
     }
 
     public void updateRegistro(Date fecha, RegistroDiario registro) throws SQLException {
-        PreparedStatement preparedStatement = connection.prepareStatement("update registrodiario set fecha=?,ventas=?,gastos=?,utilidad=?" + " where fecha=?");
-        preparedStatement.setDate(1, (java.sql.Date) registro.getFecha());
-        preparedStatement.setFloat(2, registro.getVentas());
-        preparedStatement.setFloat(3, registro.getGastos());
-        preparedStatement.setFloat(4, registro.getUtilidad());
-        preparedStatement.setDate(5, fecha);
+        PreparedStatement preparedStatement = connection.prepareStatement("update registrodiario set fecha='"+fecha+"',ventas=?,gastos=?,utilidad=?" + " where fecha='"+fecha+"'");
+        preparedStatement.setFloat(1, registro.getVentas());
+        preparedStatement.setFloat(2, registro.getGastos());
+        preparedStatement.setFloat(3, registro.getUtilidad());
         preparedStatement.executeUpdate();
     }
 
     public RegistroDiario getRegistroById(Date fecha) throws SQLException {
         Statement statement = connection.createStatement();
-        ResultSet rs = statement.executeQuery("select * from registrodiario where fecha=" + "\'" + fecha + "\'");
+        ResultSet rs = statement.executeQuery("select * from registrodiario where fecha=" + "'" + fecha + "'");
         RegistroDiario registro = new RegistroDiario();
         if (rs.next()) {
             registro.setFecha(rs.getDate("fecha"));

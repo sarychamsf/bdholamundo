@@ -61,7 +61,7 @@ public class StockDAO {
 
     public Stock getStockByProductName(String nombre) throws SQLException {
         Statement statement = connection.createStatement();
-        ResultSet rs = statement.executeQuery("select * from stock where nombre=" + "\'" + nombre + "\'");
+        ResultSet rs = statement.executeQuery("select * from stock where nombre=" + "'" + nombre + "'");
         Stock stock = new Stock();
         if (rs.next()) {
             stock.setIdStock(rs.getInt("idStock"));

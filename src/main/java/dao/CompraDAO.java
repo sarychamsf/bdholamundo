@@ -70,7 +70,7 @@ public class CompraDAO {
 
         public Compra getCompraById(int idCompra) throws SQLException {
         Statement statement = connection.createStatement();
-        ResultSet rs = statement.executeQuery("select * from compras where idCompra=" + "\'" + idCompra + "\'");
+        ResultSet rs = statement.executeQuery("select * from compras where idCompra=" + "'" + idCompra + "'");
         Compra compra = new Compra();
         if (rs.next()) {
             compra.setIdCompra(rs.getInt("idCompra"));

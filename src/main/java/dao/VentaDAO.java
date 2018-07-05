@@ -70,7 +70,7 @@ public class VentaDAO {
 
     public Venta getVentaById(int idVenta) throws SQLException {
         Statement statement = connection.createStatement();
-        ResultSet rs = statement.executeQuery("select * from ventas where idVenta=" + "\'" + idVenta + "\'");
+        ResultSet rs = statement.executeQuery("select * from ventas where idVenta=" + "'" + idVenta + "'");
         Venta venta = new Venta();
         if (rs.next()) {
             venta.setIdVenta(rs.getInt("idVenta"));

@@ -76,7 +76,7 @@ public class ProductoDAO {
 
     public Producto getProductoById(String nombre) throws SQLException {
         Statement statement = connection.createStatement();
-        ResultSet rs = statement.executeQuery("select * from producto where nombre=" + "\"" + nombre + "\"");
+        ResultSet rs = statement.executeQuery("select * from producto where nombre=" + "\'" + nombre + "\'");
         Producto producto = new Producto();
         if (rs.next()) {
             producto.setNombre(rs.getString("nombre"));

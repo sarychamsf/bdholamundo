@@ -79,12 +79,7 @@ public class RegistrarCompras extends HttpServlet {
 
             String producto = request.getParameter("producto");
             float cantidad = Float.parseFloat(request.getParameter("cantidad"));
-
-            ProductoDAO productodao = new ProductoDAO();
-            Producto productoobj = productodao.getProductoById(producto);
-            Float precio = productoobj.getPrecio();
-
-            float total = precio * cantidad;
+            float total = Float.parseFloat(request.getParameter("total"));
 
             Compra compra = new Compra(producto, (java.sql.Date) fecha, cantidad, total);
             CompraDAO compraDAO;

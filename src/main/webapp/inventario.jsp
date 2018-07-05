@@ -188,42 +188,23 @@
                                     </thead>
                                     <tbody>
 
-                                        <% 
-                                            
-                                            StockDAO stockdao = new StockDAO();
-                                            ArrayList<Stock> stocks = stockdao.getAllStock();
-
-                                            Locale.setDefault(Locale.US);
-                                            DecimalFormat num = new DecimalFormat("#,###.00");                                            
-                                            
-                                            for (int i = 0; i < stocks.size(); i++) {
-                                                
-                                                Stock stock = stocks.get(i);
-                                                String nombre = stock.getNombre();
-                                                float cantidad = stock.getCantidad();
-                                                String cantidads = num.format(cantidad);
-                                                
-                                                ProductoDAO prodao = new ProductoDAO();
-                                                Producto producto = prodao.getProductoById(nombre);
-                                                        
-                                                float precio = producto.getPrecio(); 
-                                                String precios = num.format(precio);
-                                           
-                                        %>
-
-
                                         <tr class="odd gradeA">
-                                            <td style="padding-top: 15px;"><%=nombre%></td>
-                                            <td style="padding-top: 15px;"><%=precios%></td>
-                                            <td style="padding-top: 15px;">
-                                                <%=cantidads%>
-
-                                            </td>
+                                            <td style="padding-top: 15px;">NOMBRE1</td>
+                                            <td style="padding-top: 15px;">PRECIO1></td>
+                                            <td style="padding-top: 15px;">CANTIDAD1</td>
                                         </tr>
 
-                                        <%
-                                            }
-                                        %>
+                                        <tr class="odd gradeA">
+                                            <td style="padding-top: 15px;">NOMBRE2</td>
+                                            <td style="padding-top: 15px;">PRECIO2></td>
+                                            <td style="padding-top: 15px;">CANTIDAD2</td>
+                                        </tr>
+
+                                        <tr class="odd gradeA">
+                                            <td style="padding-top: 15px;">NOMBRE3</td>
+                                            <td style="padding-top: 15px;">PRECIO3></td>
+                                            <td style="padding-top: 15px;">CANTIDAD3</td>
+                                        </tr>
 
                                     </tbody>
                                 </table>

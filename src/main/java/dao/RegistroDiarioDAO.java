@@ -69,7 +69,7 @@ public class RegistroDiarioDAO {
 
     public RegistroDiario getRegistroById(Date fecha) throws SQLException {
         Statement statement = connection.createStatement();
-        ResultSet rs = statement.executeQuery("select * from registrodiario where fecha=" + "\"" + fecha + "\"");
+        ResultSet rs = statement.executeQuery("select * from registrodiario where fecha=" + "\'" + fecha + "\'");
         RegistroDiario registro = new RegistroDiario();
         if (rs.next()) {
             registro.setFecha(rs.getDate("fecha"));

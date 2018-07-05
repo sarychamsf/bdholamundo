@@ -66,7 +66,7 @@ public class GastoDAO {
 
     public Gasto getGastoById(int idGasto) throws SQLException {
         Statement statement = connection.createStatement();
-        ResultSet rs = statement.executeQuery("select * from gastos where idGasto=" + "\"" + idGasto + "\"");
+        ResultSet rs = statement.executeQuery("select * from gastos where idGasto=" + "\'" + idGasto + "\'");
         Gasto gasto = new Gasto();
         if (rs.next()) {
             gasto.setIdGasto(rs.getInt("idGasto"));

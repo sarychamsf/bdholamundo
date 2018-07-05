@@ -54,9 +54,8 @@ public class StockDAO {
     }
 
     public void updateStock(String nombre, Stock stock) throws SQLException {
-        PreparedStatement preparedStatement = connection.prepareStatement("update stock set cantidad=?" + " where nombre=\'?"+"\'");
+        PreparedStatement preparedStatement = connection.prepareStatement("update stock set cantidad=?" + " where nombre=\'"+nombre+"\'");
         preparedStatement.setFloat(1, stock.getCantidad());
-        preparedStatement.setString(2, nombre);
         preparedStatement.executeUpdate();
     }
 

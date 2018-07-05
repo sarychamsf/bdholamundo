@@ -55,13 +55,13 @@ public class StockDAO {
 
     public void updateStock(String nombre, Stock stock) throws SQLException {
         PreparedStatement preparedStatement = connection.prepareStatement("update stock set cantidad=? where nombre='"+nombre+"'");
-        preparedStatement.setFloat(1, stock.getCantidad());
+        preparedStatement.setDouble(1, stock.getCantidad());
         preparedStatement.executeUpdate();
     }
 
     public Stock getStockByProductName(String nombre) throws SQLException {
         Statement statement = connection.createStatement();
-        ResultSet rs = statement.executeQuery("select * from stock where nombre=" + "\"" + nombre + "\"");
+        ResultSet rs = statement.executeQuery("select * from stock where nombre=" + "\'" + nombre + "\'");
         Stock stock = new Stock();
         if (rs.next()) {
             stock.setIdStock(rs.getInt("idStock"));

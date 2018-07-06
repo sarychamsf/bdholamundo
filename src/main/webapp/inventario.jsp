@@ -50,7 +50,6 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-
     </head>
 
     <%
@@ -162,7 +161,6 @@
 
             </nav>
 
-            <!-- Page Content -->
             <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
@@ -175,14 +173,15 @@
                     <div class="col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                Inventario de productos:
+                                Inventario de Productos:
                             </div>
                             <!-- /.panel-heading -->
                             <div class="panel-body">
+
                                 <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>Nombre</th>
+                                            <th>Producto</th>
                                             <th>Precio Unitario</th>
                                             <th>Cantidad Disponible</th>
                                         </tr>
@@ -190,6 +189,7 @@
                                     <tbody>
 
                                         <% 
+                                            
                                             StockDAO stockdao = new StockDAO();
                                             ArrayList<Stock> stocks = stockdao.getAllStock();
 
@@ -208,13 +208,17 @@
                                                         
                                                 float precio = producto.getPrecio(); 
                                                 String precios = num.format(precio);
-
+                                           
                                         %>
 
+
                                         <tr class="odd gradeA">
-                                            <td><%=nombre%></td>
-                                            <td><%=precios%></td>
-                                            <td><%=cantidads%></td>                                                                       
+                                            <td style="padding-top: 15px;"><%=nombre%></td>
+                                            <td style="padding-top: 15px;"><%=precios%></td>
+                                            <td style="padding-top: 15px;">
+                                                <%=cantidads%>
+
+                                            </td>
                                         </tr>
 
                                         <%
@@ -231,56 +235,110 @@
 
                                 <br>
 
-                            </div>                           
+                                <div id="seccionmod" class="panel panel-default" style="display: none;">
+                                    <div class="panel-heading">
+                                        Modificar Inventario:
+                                    </div>
 
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <form role="form" action="Inventario" method="POST">
+                                                    <div class="form-group">
+                                                        <label>Producto a Modificar</label>
+                                                        <select class="form-control" name="opcion" required>
+
+                                                            <% 
+                                                                ProductoDAO prodao = new ProductoDAO();
+                                                                ArrayList<Producto> productos = prodao.getAllProductos();
+                                                            
+                                                                for(int i = 0; i<productos.size(); i++) {
+                                                                String opcion = (productos.get(i)).getNombre();                                                                
+
+                                                            %>
+
+                                                            <option> <%=opcion %> </option>
+
+                                                            <%
+                                                                }
+                                                            %>
+
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label> Nueva Cantidad</label>
+                                                        <input class="form-control" name="cantidad" placeholder="Nueva cantidad..." required>
+                                                    </div>
+
+                                                    <button type="submit" class="btn btn-success">Modificar</button>
+                                                    <button type="button" class="btn btn-danger" onclick="cancelar();">Cancelar</button>
+
+                                                </form>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- /.panel-body -->
                         </div>
-                        <!-- /.panel-body -->
+                        <!-- /.panel -->
                     </div>
-                    <!-- /.panel -->
+                    <!-- /.col-lg-12 -->
                 </div>
-                <!-- /.col-lg-12 -->
+                <!-- /.row -->
+
             </div>
-            <!-- /.row -->
+            <!-- /#page-wrapper -->
 
         </div>
-        <!-- /#page-wrapper -->
+        <!-- /#wrapper -->
 
-    </div>
-    <!-- /#wrapper -->
+        <!-- jQuery -->
+        <script src="vendor/jquery/jquery.min.js"></script>
 
-    <!-- jQuery -->
-    <script src="vendor/jquery/jquery.min.js"></script>
+        <!-- Bootstrap Core JavaScript -->
+        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+        <!-- Metis Menu Plugin JavaScript -->
+        <script src="vendor/metisMenu/metisMenu.min.js"></script>
 
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="vendor/metisMenu/metisMenu.min.js"></script>
+        <!-- DataTables JavaScript -->
+        <script src="vendor/datatables/js/jquery.dataTables.min.js"></script>
+        <script src="vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+        <script src="vendor/datatables-responsive/dataTables.responsive.js"></script>
 
-    <!-- DataTables JavaScript -->
-    <script src="vendor/datatables/js/jquery.dataTables.min.js"></script>
-    <script src="vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
-    <script src="vendor/datatables-responsive/dataTables.responsive.js"></script>
+        <!-- Custom Theme JavaScript -->
+        <script src="dist/js/sb-admin-2.js"></script>
 
-    <!-- Custom Theme JavaScript -->
-    <script src="dist/js/sb-admin-2.js"></script>
+        <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+        <script>
+                                                        $(document).ready(function () {
+                                                            $('#dataTables-example').DataTable({
+                                                                responsive: true
+                                                            });
+                                                        });
+        </script>
 
-    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
-    <script>
-                                    $(document).ready(function () {
-                                        $('#dataTables-example').DataTable({
-                                            responsive: true
-                                        });
-                                    });
-    </script>
+        <script>
+            function cancelar() {
+                //location.reload();
+                document.getElementById('seccionmod').style.display = 'none';
+                document.getElementById('modificar').style.display = 'block';
+                document.getElementById('cancelar').style.display = 'block';
+            }
+        </script>
 
-    <script>
-        function modificar() {
-            location.href='http://almacenjc.herokuapp.com/myApp/modificarinventario.jsp';
-        }
-    </script>
+        <script>
+            function modificar() {
+                document.getElementById('seccionmod').style.display = 'block';
+                document.getElementById('modificar').style.display = 'none';
+                document.getElementById('cancelar').style.display = 'none';
+            }
+        </script>
 
-
-</body>
+    </body>
 
 </html>

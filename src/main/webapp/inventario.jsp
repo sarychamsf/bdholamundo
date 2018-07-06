@@ -286,65 +286,56 @@
                 </div>
 
             </div>
-            <!-- /.panel-body -->
+            <!-- /.row -->
+
         </div>
-        <!-- /.panel -->
+        <!-- /#page-wrapper -->
+
     </div>
+    <!-- /#wrapper -->
 
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
 
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="vendor/metisMenu/metisMenu.min.js"></script>
 
-</div>
-<!-- /.row -->
+    <!-- DataTables JavaScript -->
+    <script src="vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+    <script src="vendor/datatables-responsive/dataTables.responsive.js"></script>
 
-</div>
-<!-- /#page-wrapper -->
+    <!-- Custom Theme JavaScript -->
+    <script src="dist/js/sb-admin-2.js"></script>
 
-</div>
-<!-- /#wrapper -->
-
-<!-- jQuery -->
-<script src="vendor/jquery/jquery.min.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-
-<!-- Metis Menu Plugin JavaScript -->
-<script src="vendor/metisMenu/metisMenu.min.js"></script>
-
-<!-- DataTables JavaScript -->
-<script src="vendor/datatables/js/jquery.dataTables.min.js"></script>
-<script src="vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
-<script src="vendor/datatables-responsive/dataTables.responsive.js"></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="dist/js/sb-admin-2.js"></script>
-
-<!-- Page-Level Demo Scripts - Tables - Use for reference -->
-<script>
+    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+    <script>
                                         $(document).ready(function () {
                                             $('#dataTables-example').DataTable({
                                                 responsive: true
                                             });
                                         });
-</script>
+    </script>
 
-<script>
-    function cancelar() {
-        //location.reload();
-        document.getElementById('seccionmod').style.display = 'none';
-        document.getElementById('modificar').style.display = 'block';
-        document.getElementById('cancelar').style.display = 'block';
-    }
-</script>
+    <script>
+        function cancelar() {
+            //location.reload();
+            document.getElementById('seccionmod').style.display = 'none';
+            document.getElementById('modificar').style.display = 'block';
+            document.getElementById('cancelar').style.display = 'block';
+        }
+    </script>
 
-<script>
-    function modificar() {
-        document.getElementById('seccionmod').style.display = 'block';
-        document.getElementById('modificar').style.display = 'none';
-        document.getElementById('cancelar').style.display = 'none';
-    }
-</script>
+    <script>
+        function modificar() {
+            document.getElementById('seccionmod').style.display = 'block';
+            document.getElementById('modificar').style.display = 'none';
+            document.getElementById('cancelar').style.display = 'none';
+        }
+    </script>
 
 </body>
 

@@ -225,6 +225,14 @@
                                 </table>
                                 <!-- /.table-responsive -->
 
+                                <br>
+
+                                <button id="modificar" onclick="modificar()" class="btn btn-success">Modificar Inventario</button>
+
+                                <br>
+
+
+
                             </div>                           
 
                         </div>
@@ -261,11 +269,11 @@
 
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>
-        $(document).ready(function () {
-            $('#dataTables-example').DataTable({
-                responsive: true
-            });
-        });
+                                    $(document).ready(function () {
+                                        $('#dataTables-example').DataTable({
+                                            responsive: true
+                                        });
+                                    });
     </script>
 
     <script>

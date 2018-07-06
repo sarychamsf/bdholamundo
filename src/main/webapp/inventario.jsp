@@ -214,7 +214,7 @@
                                         <tr class="odd gradeA">
                                             <td><%=nombre%></td>
                                             <td><%=precios%></td>
-                                            <td><%=candads%></td>                                                                       
+                                            <td><%=cantidads%></td>                                                                       
                                         </tr>
 
                                         <%

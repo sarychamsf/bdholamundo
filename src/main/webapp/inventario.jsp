@@ -231,59 +231,6 @@
 
                                 <br>
 
-                                <!-- /.MODIFICAR -->
-
-                                <div id="seccionmod" class="panel panel-default" style="display: block;">
-                                    <div class="panel-heading">
-                                        Modificar Inventario:
-                                    </div>
-
-                                    <div class="panel-body">
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <form role="form" action="Inventario" method="POST">
-                                                    <div class="form-group">
-                                                        <label>Producto a Modificar</label>
-                                                        <select class="form-control" name="opcion" required>
-
-                                                            <% 
-                                                                ProductoDAO prodao = new ProductoDAO();
-                                                                ArrayList<Producto> productos = prodao.getAllProductos();
-                                                            
-                                                                for(int i = 0; i<productos.size(); i++) {
-                                                                String opcion = (productos.get(i)).getNombre();                                                                
-
-                                                            %>
-
-                                                            <option> <%=opcion %> </option>
-
-                                                            <%
-                                                                }
-                                                            %>
-
-                                                        </select>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label> Nueva Cantidad</label>
-                                                        <input class="form-control" name="cantidad" placeholder="Nueva cantidad..." required>
-                                                    </div>
-
-                                                    <button type="submit" class="btn btn-success">Modificar</button>
-                                                    <button type="button" class="btn btn-danger" onclick="cancelar();">Cancelar</button>
-
-                                                </form>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-
-
-
-
                             </div>                           
 
                         </div>
@@ -320,14 +267,18 @@
 
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>
-                                                        $(document).ready(function () {
-                                                            $('#dataTables-example').DataTable({
-                                                                responsive: true
-                                                            });
-                                                        });
+                                    $(document).ready(function () {
+                                        $('#dataTables-example').DataTable({
+                                            responsive: true
+                                        });
+                                    });
     </script>
 
-
+    <script>
+        function modificar() {
+            location.href='https://www.facebook.com';
+        }
+    </script>
 
 
 </body>

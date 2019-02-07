@@ -11,11 +11,17 @@ public class Conexion {
     private static Connection CONEXION = null;
 
     public static Connection getConnection() {
+        
         if (CONEXION != null) {
+            
             return CONEXION;
+            
         } else {
+            
             URI dbUri;
+            
             try {
+                
                 dbUri = new URI(System.getenv("DATABASE_URL"));
                 String username = dbUri.getUserInfo().split(":")[0];
                 String password = dbUri.getUserInfo().split(":")[1];
@@ -27,8 +33,8 @@ public class Conexion {
                     } catch (SQLException e) {
                         System.out.println("Connection Failed! Check output console");
                     }
-
                 }
+                
             } catch (URISyntaxException ex) {
                 Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
             }

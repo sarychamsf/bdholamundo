@@ -26,7 +26,6 @@ public class Conexion {
                         CONEXION = DriverManager.getConnection(dbUrl, username, password);
                     } catch (SQLException e) {
                         System.out.println("Connection Failed! Check output console");
-                        e.printStackTrace();
                     }
 
                 }

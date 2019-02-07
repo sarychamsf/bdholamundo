@@ -22,6 +22,7 @@
         <br>
 
         <h2> Envíanos tu Comentario... </h2>
+        <br>
 
         <form role="form" action="AgregarComentario" method="POST">
             <div>
@@ -33,6 +34,7 @@
                 <input name="descripcion" placeholder="Descripción..." maxlength="100" required>
             </div>
 
+            <br>
             <button type="submit">Enviar</button>
 
         </form>

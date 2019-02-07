@@ -67,8 +67,6 @@ public class AgregarComentario extends HttpServlet {
         
         try {
             
-            processRequest(request, response);
-            
             response.sendRedirect("index.jsp");
             processRequest(request, response);
 
@@ -78,6 +76,7 @@ public class AgregarComentario extends HttpServlet {
             Comentario comentario = new Comentario(titulo, descripcion);
             
             ComentarioDAO comentarioDAO = new ComentarioDAO();
+            
             try {
                 comentarioDAO.addComentario(comentario);
             } catch (SQLException ex) {
